@@ -33,6 +33,7 @@ $password = $_POST['password'];
 if(!$storage->checkUserCredentials($username,$password)) {
     print_r($request);exit;
 }
+//set state in session
 $_SESSION['state'] = urldecode($_GET['state']);
 $server->handleAuthorizeRequest($request, $response, $is_authorized);
 if ($is_authorized) {
