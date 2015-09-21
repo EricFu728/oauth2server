@@ -31,13 +31,11 @@ $is_authorized = ($_POST['authorized'] === 'yes');
 $username = $_POST['username'];
 $password = $_POST['password'];
 if(!$storage->checkUserCredentials($username,$password)) {
-    //test data ()
     print_r($request);exit;
 }
 $_SESSION['state'] = urldecode($_GET['state']);
 $server->handleAuthorizeRequest($request, $response, $is_authorized);
 if ($is_authorized) {
-  // this is only here so that you get to see your code in the cURL request. Otherwise, we'd redirect back to the client
   $code = substr($response->getHttpHeader('Location'), strpos($response->getHttpHeader('Location'), 'code=')+5, 40);
   //exit(json_encode(array('message'=>'SUCCESS','code'=>$code,'username'=>$request->request['username'])));
   //exit("SUCCESS! Authorization Code: $code username:".$request->request['username']);
