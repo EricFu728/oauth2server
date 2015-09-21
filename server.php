@@ -23,4 +23,4 @@ $server->addGrantType(new OAuth2\GrantType\ClientCredentials($storage));
 $server->addGrantType(new OAuth2\GrantType\AuthorizationCode($storage));
 
 //Add the "Refresh Token" grant type
-$server->addGrantType(new OAuth2\GrantType\RefreshToken($storage));
+$server->addGrantType(new OAuth2\GrantType\RefreshToken($storage,array('always_issue_new_refresh_token'=>true)));

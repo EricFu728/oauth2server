@@ -121,7 +121,7 @@ class Server implements ResourceControllerInterface,
             'allow_implicit'           => false,
             'allow_credentials_in_request_body' => true,
             'allow_public_clients'     => true,
-            'always_issue_new_refresh_token' => false,
+            'always_issue_new_refresh_token' => true,
             'unset_refresh_token_after_use' => true,
         ), $config);
 

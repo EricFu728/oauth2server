@@ -42,6 +42,6 @@ if ($is_authorized) {
   //exit(json_encode(array('message'=>'SUCCESS','code'=>$code,'username'=>$request->request['username'])));
   //exit("SUCCESS! Authorization Code: $code username:".$request->request['username']);
 
-  header('Location:'.$request->query['redirect_uri'].'?code='.$code.'&grant_type=authorization_code&username='.$request->request['username']."&state=".$_SESSION['state']);exit;
+  header('Location:'.$request->query['redirect_uri'].'?code='.$code.'&grant_type=authorization_code&username='.$request->request['username']."&state=".urlencode($_SESSION['state']));exit;
 }
 $response->send();
